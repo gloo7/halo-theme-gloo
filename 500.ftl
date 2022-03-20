@@ -5,18 +5,7 @@
     <title>Not Found</title>
     <link href="${theme_base!}/source/css/404.css" type="text/css" rel="stylesheet"/>
 </head>
-  <main style="
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
-    background:white;
-    color:black;
-    font-family:arial, sans-serif;
-    overflow:hidden;
-    font-size: 20
-  ">
+  <main class="err-container">
     <span class="particle">4</span>
     <span class="particle">4</span>
     <span class="particle">4</span>

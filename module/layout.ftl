@@ -22,7 +22,7 @@
         <main class="page-content">
             <@header fixed_header=fixed_header/>
             <#if enable_breadcrumb>
-                <@breadcrumb title="${title}"/>
+                <@breadcrumb title=title/>
             </#if>
             <#nested >        
             <@footer/>

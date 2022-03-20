@@ -1,6 +1,6 @@
 <#macro post_thumbnail post>
     <#assign thumbnail = post.thumbnail!?trim>
-    <#assign default_img_url = settings.post_thumbnail)>
+    <#assign default_img_url = settings.post_thumbnail>
     <#if thumbnail == ''>
         <#if post.categories?size gt 0>
             <#assign thumbnail = post.categories[0].thumbnail!?trim>

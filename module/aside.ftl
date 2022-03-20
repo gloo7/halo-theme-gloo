@@ -1,4 +1,4 @@
-<#import "/module/post_thumbnail.ftl" as tbn>
+<#import "./post_thumbnail.ftl" as tbn>
 <#macro aside>
 <div class="col-xl-3 col-lg-4 sticky-sidebar-active">
     <div class="widgets">
@@ -76,9 +76,10 @@
                             </a>
                         </li>
                     </#list>
-                </#if>
-            </@tagTag>
-        </section>
+                </@tagTag>
+                </section>
+            </#if>
+        </@tagTag>
 
         <#if settings.qrcode_wxpay != ''>
         <section class="single-widget">

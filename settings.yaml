@@ -2,6 +2,13 @@
 genernal:
   label: 基本设置
   items:
+    job:
+      name: job
+      label: 职业
+      type: text
+      default: "PROFESSIONAL _WEB DEVELOPER"
+      placeholder: "职业"
+      description: "职业信息将展示在首页中，不填不展示（示例：PROFESSIONAL _WEB DEVELOPER）"
     country:
       name: country
       label: 国家
@@ -177,10 +184,10 @@ index:
       description: "文章无配图时生效，可使用占位图服务（210*140）"
     provide_data:
       name: provide_data
-      label: 手动配置数据
+      label: 我提供的
       type: textarea
-      default: "欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg=====欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg=====欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg=====欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg=====欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg=====欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg====="
-      description: "手动配置首页的提供服务数据，仅当数据来源为 “手动配置” 时生效（注意：主题内默认配置了演示数据）。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述-|||-跳转链接，不需要跳转写 '#' 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
+      default: "网站开发-|||-建站经验丰富，网站定制，网站搭建，网页设计师量身打造品牌风格=====APP开发-|||-app开发,节约99%成本。APP快速开发即时通讯，实时音视频等功能=====OA系统-|||-提供流程审批，报销，合同，人事，客服等功能,满足各类管理场景所需"
+      description: "手动配置首页的”我提供的“数据（注意：主题内默认配置了演示数据）。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
 
 
 about:

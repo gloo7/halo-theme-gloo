@@ -10,7 +10,7 @@
                     </h1>
 
 
-                    <h5>PROFESSIONAL _WEB DEVELOPER</h5>
+                    <h5${settings.job}</h5>
                     <Link to="/about" class="readmore">关于我</Link>
                 </div>
                 <div class="hero-area-image">
