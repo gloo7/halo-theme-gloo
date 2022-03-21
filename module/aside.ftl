@@ -5,7 +5,7 @@
 
         <section class="single-widget widget-search">
             <h5 class="widget-title">搜索</h5>
-            <form method="get" action="${blog_url!}/search"></form>
+            <form method="get" action="${blog_url!}/search">
                 <input type="text" placeholder="请输入关键字..." name="keyword" />
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
