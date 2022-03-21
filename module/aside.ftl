@@ -11,8 +11,15 @@
             </form>
         </section>
 
-        <#--最新文章-->
-        <#if posNum != 0 && settings.enable_newest_post>
+        <@postTag method="count">
+            <#assign postNum=count>
+            <a href="${archives_url!}" title="文章" class="by_user_data_item">
+                <div class="headline">文章</div>
+                <div class="length-num">${count!0}</div>
+            </a>
+        </@postTag>
+
+        <#if postNum != 0 && settings.enable_newest_post>
             <@postTag method="latest" top="${settings.newest_page_size!5}">
                 <section class="single-widget widget-related-post">
                     <h5 class="widget-title">最新文章</h5>
@@ -20,7 +27,7 @@
                         <#list posts?sort_by("editTime")?reverse as post>
                             <@tbn.post_thumbnail post=post />
                             <li>
-                                <div className="content">
+                                <div class="content">
                                     <#-- <a class="thumbnail" href="${post.fullPath!}" title="${post.title!}">
                                         <img 
                                             class="lazyload"
@@ -47,8 +54,8 @@
         <@categoryTag method="count">
             <#if count != 0 && settings.enable_categories>
                 <@categoryTag method="list">
-                    <section className="single-widget widget-categories">
-                        <h5 className="widget-title">分类</h5>
+                    <section class="single-widget widget-categories">
+                        <h5 class="widget-title">分类</h5>
                         <ul>
                             <#list categories?sort_by("postCount") ? reverse as category>
                             <li 
@@ -66,8 +73,8 @@
         
         <@tagTag method="count">
             <#if count != 0 && settings.enable_tags>
-                <section className="single-widget widget-tags">
-                <h5 className="widget-title">标签</h5>
+                <section class="single-widget widget-tags">
+                <h5 class="widget-title">标签</h5>
                 <@tagTag method="list">
                     <#list tags as tag>
                         <li>

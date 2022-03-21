@@ -14,7 +14,7 @@
     <div class="container">
         <div class="header-inner d-none d-lg-flex">
             <div class="header-logo">
-                <a to="/">
+                <a href="/">
                     <img src="${theme_base!}/source/images/logo-dark.png" alt="logo" />
                 </a>
             </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="mobile-menu-wrapper d-block d-lg-none">
             <div class="mobile-menu clearfix">
-                <a to="/" class="mobile-logo">
+                <a href="/" class="mobile-logo">
                     <img src="${theme_base!}/source/images/logo-dark.png" alt="mobile logo" />
                 </a>
                 <div class="mobile-menu-wrapper d-block d-lg-none">
@@ -62,7 +62,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <a class="mobile-logo" to="/">
+                        <a class="mobile-logo" href="/">
                             <img src="${theme_base!}/source/images/logo-dark.png" alt="mobile logo" />
                         </a>
                     </div>

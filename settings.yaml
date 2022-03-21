@@ -548,8 +548,8 @@ post:
       type: attachment
       default: ""
       placeholder: "打赏用的支付宝收款二维码链接，不填不显示"
-    qrcode_wx:
-      name: qrcode_wx_pay
+    qrcode_wxpay:
+      name: qrcode_wxpay
       label: "微信二维码"
       type: attachment
       default: ""
