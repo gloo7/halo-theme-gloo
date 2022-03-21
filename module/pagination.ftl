@@ -1,10 +1,10 @@
 <#macro pagination  method='index' slug="" display = "3">
     <@paginationTag method="${method!}"  slug="${slug!}" page="${posts.number}" total="${posts.totalPages}" display="3">
-    <div class="cr-pagination mt-4 text-center"></div>
+    <div class="cr-pagination mt-4 text-center">
         <ul>
             <#if pagination.hasPrev>
                 <li>
-                    <a href="${pagination.prevPageFullPath}"><i class="fa fa-angle-double-left" /></a>
+                    <a href="${pagination.prevPageFullPath}"><i class="fa fa-angle-double-left" />
                 </li>
             </#if>
             <#list pagination.rainbowPages as number>
@@ -20,7 +20,7 @@
             </#list>
             <#if pagination.hasNext>
                 <li>
-                    <a href="${pagination.nextPageFullPath}"><i class="fa fa-angle-double-right" /></a>
+                    <a href="${pagination.nextPageFullPath}"><i class="fa fa-angle-double-right" />
                 </li>
             </#if>
         </ul>

@@ -47,9 +47,9 @@
                         </#list >
                     </div>
                     <@pagination/>
-                </#if>
-                <@aside />
+                </#if>    
             </div>
+            <@aside />
         </div>
     </div>
 </div>
