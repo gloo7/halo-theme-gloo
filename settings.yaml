@@ -50,8 +50,6 @@ genernal:
       type: textarea
       placeholder: 请输入公告信息
       description: "网站公告信息，将展示在页面右侧，尽量简洁明了（不填不展示该模块，也可单独开关）"
-
-
 aside:
   label: 侧边栏
   items:
@@ -103,25 +101,6 @@ aside:
       label: 最新文章条数
       default: 5
       description: "右侧最新文章展示条数，填写数字即可，默认展示最新的5篇文章（需开启最新文章）"
-    #    show_newreply:
-    #      name: show_newreply
-    #      label: 展示最新评论
-    #      type: switch
-    #      data-type: bool
-    #      default: true
-    #      description: "在右侧展示最新的评论"
-    #      options:
-    #        - value: true
-    #          label: 开启
-    #        - value: false
-    #          label: 关闭
-    #    newreply_page_size:
-    #      name: newreply_page_size
-    #      label: 最新评论条数
-    #      type: text
-    #      data-type: long
-    #      default: 5
-    #      description: "右侧最新评论展示条数，填写数字即可，默认展示最新的5条评论（需开启最新评论）"
     enable_notice:
       name: enable_notice
       label: 展示网站公告
@@ -158,8 +137,6 @@ aside:
           label: 开启
         - value: false
           label: 关闭
-
-
 index:
   label: 首页
   items:
@@ -195,17 +172,17 @@ about:
   items:
     keyword_data:
       name: keyword_data
-      label: 手动配置数据
+      label: 我的经验数据
       type: textarea
-      default: "欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg-|||-https://github.com/qinhua/halo-theme-joe2.0#readme=====剪映创作不凡 - TRACK概念片-|||-https://img.zcool.cn/community/011ca2614d755911013e894390b399.png@1280w_1l_2o_100sh.png-|||-#"
-      description: "手动配置首页的提供服务数据，仅当数据来源为 “手动配置” 时生效（注意：主题内默认配置了演示数据）。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述-|||-跳转链接，不需要跳转写 '#' 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
+      default: ""
+      description: "手动配置关于我页的”经验“数据。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
     skill_data:
       name: skill_data
-      label: 手动配置数据
+      label: 我的技能数据
       type: textarea
-      default: "欢迎使用Joe2.0主题-|||-https://bbchin.com/themes/joe2.0/source/images/dp/welcome.jpg-|||-https://github.com/qinhua/halo-theme-joe2.0#readme=====剪映创作不凡 - TRACK概念片-|||-https://img.zcool.cn/community/011ca2614d755911013e894390b399.png@1280w_1l_2o_100sh.png-|||-#"
-      description: "手动配置首页的提供服务数据，仅当数据来源为 “手动配置” 时生效（注意：主题内默认配置了演示数据）。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述-|||-跳转链接，不需要跳转写 '#' 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
-    
+      default: ""
+      description: "手动配置关于我页的”我的技能“数据。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
+
 
 archives:
   label: 归档
@@ -247,6 +224,7 @@ archives:
         - value: false
           label: 否
 
+
 categories:
   label: 分类
   items:
@@ -256,6 +234,117 @@ categories:
       default: "全部分类"
       placeholder: "请输入"
       description: "修改分类页顶部的标题"
+
+
+comment:
+  label: 评论
+  items:
+    enable_comment:
+      name: enable_comment
+      label: 开启评论
+      type: switch
+      data-type: bool
+      default: true
+      description: "开启评论"
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    gravatar_source:
+      name: gravatar_source
+      label: 评论头像源
+      type: text
+      default: "https://sdn.geekzu.org/avatar"
+      placeholder: 请输入源地址，末尾不需要斜杠
+      description: "用于修改全站评论的头像源地址（优先取主题中配置的源，取不到时才从后台管理中取），默认为 https://sdn.geekzu.org/avatar（若头像显示不出来，请自行更换源）。关于头像类型，可以到 “后台管理-系统-博客设置-评论设置” 中配置"
+    enable_comment_autoload:
+      name: enable_comment_autoload
+      label: 自动加载评论
+      type: switch
+      data-type: bool
+      default: true
+      description: "是否自动加载评论数据，分页大小可在 “后台管理-系统-博客设置-评论设置-每页显示条数” 中统一配置"
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    # comment_page_size:
+    #   name: comment_page_size
+    #   label: 评论分页大小
+    #   type: text
+    #   data-type: long
+    #   default: 10
+    #   description: "配置评论组件的分页大小，默认为 10"
+    enable_comment_ua:
+      name: enable_comment_ua
+      label: 展示评论者UA信息
+      type: switch
+      data-type: bool
+      default: false
+      description: "用来控制全局评论组件中是否展示评论者的UA信息（浏览器、操作系统等）"
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    comment_loading_style:
+      name: comment_loading_style
+      label: 评论加载样式
+      type: radio
+      data-type: text
+      default: default
+      description: "选择加载评论时的样式"
+      options:
+        - value: default
+          label: 默认
+        - value: circle
+          label: 圆圈
+        - value: balls
+          label: 小球
+    comment_aword:
+      name: comment_aword
+      label: "评论框内的一言"
+      type: text
+      default: "你是我一生只会遇见一次的惊喜 ..."
+      placeholder: 请输入
+      description: "输入内容时展示的的一言内容"
+    comment_author_poptext:
+      name: comment_author_poptext
+      label: "提示文案（输入昵称时）"
+      type: text
+      default: "输入QQ号将自动拉取昵称和头像"
+      placeholder: 请输入
+      description: "填写昵称时的提示文字"
+    comment_email_poptext:
+      name: comment_email_poptext
+      label: "提示文案（输入邮箱时）"
+      type: text
+      default: "你将收到回复通知"
+      placeholder: 请输入
+      description: "填写邮箱时的提示文字"
+    comment_avatar_error:
+      name: comment_avatar_error
+      label: 缺省头像
+      type: text
+      placeholder: 请输入
+      default: "https://bbchin.com/themes/joe2.0/source/img/error_avatar.jpg"
+      description: "当评论头像加载不出来时展示的默认头像"
+    comment_avatar_loading:
+      name: comment_avatar_loading
+      label: 头像加载图
+      type: text
+      placeholder: 请输入
+      default: "https://bbchin.com/themes/joe2.0/source/svg/spinner-preloader.svg"
+      description: "头像加载时展示的loading图片"
+    comment_empty_text:
+      name: comment_empty_text
+      label: 无评论时的文案
+      type: text
+      default: "暂无评论"
+      placeholder: 请输入
+      description: "没有评论数据时显示的文字"
 
 
 links:
@@ -361,8 +450,6 @@ sheet:
       type: attachment
       default: "https://gitee.com/dhjdd/Timo/raw/master/1642841299688.png"
       placeholder: "顶部背景图"
-
-
 code_block:
   label: 代码块
   items:
@@ -490,8 +577,6 @@ code_block:
           label: "xonokai"
         - value: "z-touch"
           label: "z-touch"
-
-
 post:
   label: 文章
   items:

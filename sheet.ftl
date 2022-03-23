@@ -12,7 +12,7 @@ padding-top: 110">
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center" ref={pie} >
+        <div class="row justify-content-center">
             <div class="row justify-content-center">
                 <#list settings.skill_data?split('=====') as skiil_data>
                 <#if (skills_index + 1) lte limit>
@@ -65,7 +65,7 @@ padding-top: 110">
 </div>
 
 <div class="cr-section about-us-area section-padding-lg"> 
-    <#if settings.enable_clean_mode!=true && settings.enable_comment==true && sheet.status!='DRAFT'>
+    <#if settings.enable_comment==true && sheet.status!='DRAFT'>
         <div class="comment">
             <#if sheet.disallowComment == true || enable_comment == 'false'>
             <div class="comment__close">

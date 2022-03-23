@@ -13,10 +13,6 @@
 
         <@postTag method="count">
             <#assign postNum=count>
-            <a href="${archives_url!}" title="文章" class="by_user_data_item">
-                <div class="headline">文章</div>
-                <div class="length-num">${count!0}</div>
-            </a>
         </@postTag>
 
         <#if postNum != 0 && settings.enable_newest_post>
@@ -38,7 +34,7 @@
                                         >
                                     </a> -->
                                     <h6><a href="${post.fullPath!}">${post.title}</Link></h6>
-                                    <div style="margin-top:10;">
+                                    <div>
                                         <span>
                                             <time>${post.createTime?string('yyyy-MM-dd')}</time>
                                         </span>

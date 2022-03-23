@@ -33,7 +33,7 @@
                                     </a>
                                     <div class="archives_sort_item_info">
                                         <div class="archives_sort_item_info_item">
-                                            <i class="by-font icon_rili1"></i>
+                                            <i class="fa fa-calendar"></i>
                                             <time class="post-meta-date-created" datetime="${post.createTime?string('yyyy-MM-dd')}"
                                                 title="发表于 ${post.createTime?string('yyyy-MM-dd')}">${post.createTime?string('yyyy-MM-dd')}
                                             </time>
