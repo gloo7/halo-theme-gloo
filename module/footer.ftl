@@ -1,6 +1,7 @@
 <#macro footer>
 <footer id="footer" class="footer-area ">
     <div class="container">
+    
         <ul class="footer-inner">
             <li>总浏览量：${count!'0'}<br/> ${settings.country}，${settings.province}</li>
             <li>

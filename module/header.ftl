@@ -19,11 +19,11 @@
                 </a>
             </div>
             <div class="header-navigation">
-                <button onclick="showHeader(this)" class="header-navigation-trigger">
+                <a onclick="showHeader(this)" class="header-navigation-trigger">
                     <span></span>
                     <span></span>
                     <span></span>
-                </button>
+                </a>
                 <nav class="main-navigation">
                     <ul>
                         <@menuTag method="list">

@@ -54,11 +54,11 @@
                         <h5 class="widget-title">分类</h5>
                         <ul>
                             <#list categories?sort_by("postCount") ? reverse as category>
-                            <li 
-                                style="cursor:pointer;"
-                                href="${category.fullPath!}" title="${category.name!}"
-                            >   
-                                <a>${category.name!} <span>${category.postCount!}</span></a>
+                            <li>   
+                                <a 
+                                    href="${category.fullPath!}" 
+                                    title="${category.name!}"
+                                >${category.name!} <span>${category.postCount!}</span></a>
                             </li>
                             </#list>
                         </ul>
