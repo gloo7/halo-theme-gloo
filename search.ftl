@@ -5,7 +5,7 @@
 <#include "module/post_list.ftl">
 <@layout title="${keyword!}的搜索结果" enable_breadcrumb=false>
 
-<div class="gloo-section section-padding-lg">
+<div class="section section-padding-lg">
     <div class="container"> 
         <div>
             <i class="fa fa-search"></i>

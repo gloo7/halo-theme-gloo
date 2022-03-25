@@ -1,6 +1,6 @@
 <#macro empty text='暂无数据' showImg="true"  showBg=true>
 <#assign  bg= (showBg)?then('by_card_widget', '')>
-<div class="gloo-section section-padding-lg">
+<div class="section section-padding-lg">
     <div class="container" style="text-align: center;"> 
         <#if showImg=="true">
         <svg style="

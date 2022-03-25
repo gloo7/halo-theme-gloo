@@ -1,7 +1,7 @@
 <#include "module/layout.ftl">
 <@layout title="${sheet.title!}">
 <#if settings.skill_data != ''>
-<div class="gloo-section skills-area section-padding-lg">
+<div class="section skills-area section-padding-lg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7">
@@ -33,7 +33,7 @@
 </#if>
 
 <#if settings.keyword_data != ''>
-<div class="gloo-section counter-section section-padding-xs bg-grey" ref={countEle}>
+<div class="section counter-section section-padding-xs bg-grey" ref={countEle}>
     <div class="container">
         <div class="row justify-content-center">
             <#list settings.keyword_data?split('=====') as keywords>
@@ -52,13 +52,13 @@
 </div>
 </#if>
 
-<div class="gloo-section about-us-area section-padding-lg ">
+<div class="section about-us-area section-padding-lg ">
     <div class="container">
         ${sheet.formatContent!}
     </div>
 </div>
 
-<div class="gloo-section about-us-area section-padding-bottom-lg">
+<div class="section about-us-area section-padding-bottom-lg">
     <div class="container">
         <#if settings.enable_comment==true && sheet.status!='DRAFT'>
             <#if sheet.disallowComment == true>

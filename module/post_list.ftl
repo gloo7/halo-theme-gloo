@@ -3,8 +3,8 @@
     <div class="posts_item card_widget row">
         <a class="posts_cover col-md-5 col-12" href="${post.fullPath!}" title="${post.title!}">
             <@tbn.post_thumbnail post=post />
-            <#-- <img class="lazyload" data-src="${tbn.thumbnail}" src="${lazy_img}" onerror="this.src='${err_img}'"
-                 alt="${post.title!}"> -->
+            <img class="lazyload" data-src="${tbn.thumbnail}" src="${tbn.lazy_img}" onerror="this.src='${tbn.err_img}'"
+                 alt="${post.title!}" />
         </a>
 
         <div class="posts_info col-md-7 col-12">

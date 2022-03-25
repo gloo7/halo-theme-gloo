@@ -1,11 +1,11 @@
 <#include "module/layout.ftl">
 <@layout title="${post.title!}"
 >
-<div class="gloo-section about-us-area section-padding-lg">
+<div class="section about-us-area section-padding-lg">
     <div class="container">
         ${post.formatContent!}
         <#include "module/postfooter.ftl">
-        <div class="gloo-section about-us-area section-padding-lg"> 
+        <div class="section about-us-area section-padding-lg"> 
             <#if settings.enable_comment==true>
                     <#include "module/comment.ftl">
                     <@comment target=post type="post"/>

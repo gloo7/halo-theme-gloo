@@ -6,7 +6,7 @@
 <@layout
     title="${category.name!}"
 >
-<div class="cr-section section-padding-lg">
+<div class="section section-padding-lg">
     <div class="container"> 
         <div class="row">
             <div class="col-xl-9 col-lg-8">

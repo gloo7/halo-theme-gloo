@@ -1,28 +1,26 @@
 <#include "module/layout.ftl">
+<#include 'module/aside.ftl' >
 <@layout
-    title="${settings.links_title}"
+    title="${settings.journals_title}"
 >
-<div class="gloo-section about-us-area section-padding-lg">
+<div class="section about-us-area section-padding-lg">
     <div class="container">
         <div class="row">
-            <@linkTag method="list">
-            <#if links?? && links?size gt 0>
-                <#list links as link>
-                
-                    <a class="by_link_card col-md-6" href="${link.url}" target="_blank" title="${link.name!}">
-                        <div class="info" style="background: linear-gradient(to top, rgb(196, 113, 245) 0%, rgb(250, 113, 205) 100%);">
-                            <img src="${link.logo!}" alt="">
-                            <span>${link.name!}</span>
+            <div class="col-xl-9 col-lg-8">
+                <#if journals.content?? && journals.content?size gt 0>
+                    <#list journals.content as journal>
+                        <div class="journal-item col-12">
+                            <h6 class="journal-item-title" >
+                                ${journal.createTime?string('yyyy-MM-dd')}
+                            </h6>
+                            <p>${journal.content!}</p>
                         </div>
-                        <div class="desc ">
-                            ${link.description}
-                        </div>
-                    </a>
-                </#list>
-            <#else>
-                <@empty showBg = false/>
-            </#if>
-            </@linkTag>
+                    </#list>
+                <#else>
+                    <@empty />
+                </#if>
+            </div>
+            <@aside />
         </div>
     </div>
 </div>   

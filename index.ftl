@@ -24,39 +24,6 @@
                 </div>
             </div>
         </div>
-
-        <#if settings.qrcode_qq != ''>
-        <div style="
-            position:fixed;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:1050;
-            overflow:hidden;
-            display:none;
-            outline:0;
-        ">
-            <div class="modal-dialog" style="
-                position:absolute;
-                top:50%;
-                left:50%;
-                transform:translate(-50%,-50%);
-                min-width:300px;
-                margin:0;
-            ">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">QQ</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="${settings.qrcode_qq}" art="QQ"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </#if>
         
         <#if settings.qrcode_wx != ''>
         <div style="
@@ -92,7 +59,7 @@
         </#if>
 
         <#if settings.provide_data != ''>
-        <div class="gloo-section services-area section-padding-bottom-lg section-padding-top-lg">
+        <div class="section services-area section-padding-bottom-lg section-padding-top-lg">
             
             <div class="container">
                 <div class="row justify-content-center">
@@ -110,7 +77,7 @@
                         <#assign cur_title = (provide[0]?? && provide[0]?trim!='')?then(provide[0]?replace('\n','')?replace('\r','')?trim,'')>
                         <#assign cur_value = (provide[1]?? && provide[1]!='')?then(provide[1]?replace('\n','')?replace('\r','')?trim,'')>
                         <div class="col-lg-4 col-md-6 col-12">
-                            <div class="service text-center">
+                            <div class="service text-center boxed-layout">
                                 <h5>${cur_title}</h5>
                                 <p>${cur_value}</p>
                             </div>

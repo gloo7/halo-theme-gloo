@@ -1,12 +1,12 @@
 <#include "module/layout.ftl">
 <@layout title="${sheet.title!}">
-<div class="gloo-section about-us-area section-padding-lg ">
+<div class="section about-us-area section-padding-lg ">
     <div class="container">
         ${sheet.formatContent!}
     </div>
 </div>
 
-<div class="gloo-section about-us-area section-padding-bottom-lg">
+<div class="section about-us-area section-padding-bottom-lg">
     <div class="container">
         <#if settings.enable_comment==true && sheet.status!='DRAFT'>
             <#if sheet.disallowComment == true>

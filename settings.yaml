@@ -55,30 +55,18 @@ genernal:
 aside:
   label: 侧边栏
   items:
-    enable_aside:
-      name: enable_aside
-      label: 启用全局侧边栏
+    enable_notice:
+      name: enable_notice
+      label: 展示网站公告
       type: switch
       data-type: bool
       default: true
-      description: "是否启用侧边栏（全局），关闭后所有页面都没有侧边栏（优先级高于页面元数据）"
+      description: "在右侧展示公告信息模块，必须配置公告内容才生效（请在 '基本设置' 栏中配置）"
       options:
         - value: true
-          label: 是
+          label: 开启
         - value: false
-          label: 否
-    aside_position:
-      name: aside_position
-      label: 侧边栏位置
-      type: radio
-      data-type: text
-      default: right
-      description: "侧边栏展示位置，左边或右边"
-      options:
-        - value: left
-          label: 左侧
-        - value: right
-          label: 右侧
+          label: 关闭
     site_btn:
       name: site_btn
       label: 信息按钮
@@ -86,6 +74,18 @@ aside:
       placeholder: 请输入
       default: "关注我||/"
       description: "侧边栏按钮信息请按照格式填写否则报错  跳转文字|跳转url"
+    enable_search:
+      name: enable_search
+      label: 开启文章搜索
+      type: switch
+      data-type: bool
+      default: true
+      description: "在右侧展示文章搜索模块（请在 '基本设置' 栏中配置）"
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
     enable_newest_post:
       name: enable_newest_post
       label: 展示最新文章
@@ -103,18 +103,6 @@ aside:
       label: 最新文章条数
       default: 5
       description: "右侧最新文章展示条数，填写数字即可，默认展示最新的5篇文章（需开启最新文章）"
-    enable_notice:
-      name: enable_notice
-      label: 展示网站公告
-      type: switch
-      data-type: bool
-      default: true
-      description: "在右侧展示公告信息模块，必须配置公告内容才生效（请在 '基本设置' 栏中配置）"
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
     enable_categories:
       name: enable_categories
       label: 侧边栏展示分类
@@ -144,14 +132,8 @@ aside:
 index:
   label: 首页
   items:
-    qrcode_qq:
-      name: qrcode_qq
-      label: "QQ二维码"
-      type: attachment
-      default: ""
-      placeholder: "QQ加好友二维码，不填不显示"
     qrcode_wx:
-      name: qrcode_qq
+      name: qrcode_wx
       label: "微信二维码"
       type: attachment
       default: ""
@@ -169,7 +151,26 @@ index:
       type: textarea
       default: "网站开发-|||-建站经验丰富，网站定制，网站搭建，网页设计师量身打造品牌风格=====APP开发-|||-app开发,节约99%成本。APP快速开发即时通讯，实时音视频等功能=====OA系统-|||-提供流程审批，报销，合同，人事，客服等功能,满足各类管理场景所需"
       description: "手动配置首页的”我提供的“数据（注意：主题内默认配置了演示数据）。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
-
+    lazyload_thumbnail:
+      name: lazyload_thumbnail
+      label: 文章预载图
+      type: attachment
+      default: "https://bbchin.com/themes/joe2.0/source/img/lazyload.gif"
+      description: "文章配图加载出来之前展示的图片，体积尽可能的小"
+    post_thumbnail:
+      name: post_thumbnail
+      label: 文章默认缩略图
+      width: 100%
+      type: attachment
+      default: "https://picsum.photos/id/1081/350/200"
+      description: "文章无配图时生效，可使用占位图服务（350*200） https://source.unsplash.com、https://picsum.photos"
+    fallback_thumbnail:
+      name: fallback_thumbnail
+      label: 文章错误缺省图
+      type: attachment
+      default: "https://bbchin.com/themes/joe2.0/source/img/default_thumbnail.png"
+      description: "文章图片加载出错时生效，可使用占位图服务（350*200）"
+      
 
 about:
   label: 关于我
@@ -324,24 +325,6 @@ links:
       default: "友情链接"
       placeholder: "请输入"
       description: "修改友链页顶部展示的标题"
-    enable_top_links_background_img:
-      name: enable_top_links_background_img
-      label: 开启顶部背景图
-      type: switch
-      data-type: bool
-      default: true
-      placeholder: "开启顶部背景图"
-      options:
-        - value: true
-          label: 是
-        - value: false
-          label: 否
-    top_links_background_img:
-      name: top_links_background_img
-      label: 顶部背景图（友链）
-      type: attachment
-      default: "https://gitee.com/dhjdd/Timo/raw/master/1642841299688.png"
-      placeholder: "顶部背景图（友链）"
     enable_links_aside:
       name: enable_links_aside
       label: 是否展示侧边栏
@@ -365,26 +348,8 @@ journals:
       default: "我的动态"
       placeholder: "请输入"
       description: "修改日志页顶部展示的标题"
-    enable_top_journals_background_img:
-      name: enable_top_journals_background_img
-      label: 开启顶部背景图
-      type: switch
-      data-type: bool
-      default: true
-      placeholder: "开启顶部背景图"
-      options:
-        - value: true
-          label: 是
-        - value: false
-          label: 否
-    top_journals_background_img:
-      name: top_journals_background_img
-      label: 顶部背景图
-      type: attachment
-      default: "https://gitee.com/dhjdd/Timo/raw/master/1642841299688.png"
-      placeholder: "顶部背景图"
     enable_journals_aside:
-      name: enable_journals_aside
+      name: enable_links_aside
       label: 是否展示侧边栏
       type: switch
       data-type: bool
@@ -400,71 +365,23 @@ journals:
 sheet:
   label: 自定义
   items:
-    enable_top_sheet_background_img:
-      name: enable_top_sheet_background_img
-      label: 开启顶部背景图
+    enable_sheet_breadcrumb:
+      name: enable_sheet_breadcrumb
+      label: 开启自定义页面breadcrumb
       type: switch
       data-type: bool
       default: true
-      placeholder: "开启顶部背景图"
+      placeholder: "开启自定义页面breadcrumb"
       options:
         - value: true
           label: 是
         - value: false
           label: 否
-    top_sheet_background_img:
-      name: top_sheet_background_img
-      label: 顶部背景图
-      type: attachment
-      default: "https://gitee.com/dhjdd/Timo/raw/master/1642841299688.png"
-      placeholder: "顶部背景图"
+
+
 code_block:
   label: 代码块
   items:
-    #    enable_code_copy:
-    #      name: enable_code_copy
-    #      label: 代码复制
-    #      type: switch
-    #      data-type: bool
-    #      default: true
-    #      description: 开启代码块复制按钮
-    #      options:
-    #        - value: true
-    #          label: 开启
-    #        - value: false
-    #          label: 关闭
-    #    enable_code_expander:
-    #      name: enable_code_expander
-    #      label: 代码折叠
-    #      type: switch
-    #      data-type: bool
-    #      default: false
-    #      description: "开启代码块折叠功能"
-    #      options:
-    #        - value: true
-    #          label: 开启
-    #        - value: false
-    #          label: 关闭
-    #    fold_long_code:
-    #      name: fold_long_code
-    #      label: 自动折叠长代码块
-    #      type: switch
-    #      data-type: bool
-    #      default: false
-    #      description: "自动折叠 <文章页> 中内容很长的代码块，提高阅读效率，此操作会出现布局偏移，可能带来一些滚动相关问题，如无必要不建议开启（必须先开启“代码折叠”选项，否则无效）"
-    #      options:
-    #        - value: true
-    #          label: 开启
-    #        - value: false
-    #          label: 关闭
-    #    long_code_height:
-    #      name: long_code_height
-    #      label: 自动折叠的高度
-    #      type: text
-    #      data-type: long
-    #      default: 800
-    #      placeholder: "请输入数字"
-    #      description: "触发长代码块自动折叠的高度（单位px），只填数字即可（默认800），填 0 将折叠所有代码块"
     code_theme:
       name: code_theme
       label: 代码主题
@@ -548,42 +465,6 @@ code_block:
 post:
   label: 文章
   items:
-    enable_post_aside:
-      name: enable_post_aside
-      label: 是否展示侧边栏
-      type: switch
-      data-type: bool
-      default: true
-      description: "是否展示侧边栏"
-      options:
-        - value: true
-          label: 是
-        - value: false
-          label: 否
-    enable_top_post_background_img:
-      name: enable_top_post_background_img
-      label: 开启顶部背景图
-      type: switch
-      data-type: bool
-      default: true
-      placeholder: "开启顶部背景图"
-      options:
-        - value: true
-          label: 是
-        - value: false
-          label: 否
-    #    enable_aside_expander:
-    #      name: enable_aside_expander
-    #      label: 展示侧边栏切换按钮
-    #      type: switch
-    #      data-type: bool
-    #      default: true
-    #      description: "文章页顶部显示用于切换侧边栏显示/隐藏状态的按钮（仅在展示侧边栏情况下生效）"
-    #      options:
-    #        - value: true
-    #          label: 是
-    #        - value: false
-    #          label: 否
     enable_donate:
       name: enable_donate
       label: 开启打赏
