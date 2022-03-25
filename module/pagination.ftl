@@ -1,6 +1,6 @@
 <#macro pagination  method='index' slug="" display = "3">
     <@paginationTag method="${method!}"  slug="${slug!}" page="${posts.number}" total="${posts.totalPages}" display="3">
-    <div class="cr-pagination mt-4 text-center">
+    <div class="gloo-pagination mt-4 text-center">
         <ul>
             <#if pagination.hasPrev>
                 <li>

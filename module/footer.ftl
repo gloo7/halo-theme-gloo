@@ -8,7 +8,7 @@
                 <a target="_blank" href="http://www.beian.miit.gov.cn/">${settings.icp}</a>
             </li>
             <li><a href="mailto://${settings.email}">${settings.email}</a></li>
-            <li>Copyright &copy; ${settings.copyright}</li>
+            <li>${settings.copyright}</li>
         </ul>
     </div>
 </footer>

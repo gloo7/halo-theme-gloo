@@ -1,13 +1,13 @@
 <#import "./post_thumbnail.ftl" as tbn>
 <#macro post_list post>
-    <div class="posts_item card_widget">
-        <a class="posts_cover" href="${post.fullPath!}" title="${post.title!}">
+    <div class="posts_item card_widget row">
+        <a class="posts_cover col-md-5 col-12" href="${post.fullPath!}" title="${post.title!}">
             <@tbn.post_thumbnail post=post />
             <#-- <img class="lazyload" data-src="${tbn.thumbnail}" src="${lazy_img}" onerror="this.src='${err_img}'"
                  alt="${post.title!}"> -->
         </a>
 
-        <div class="posts_info">
+        <div class="posts_info col-md-7 col-12">
             <a href="${post.fullPath!}" title="${post.title!}" class="posts_title webkit_box">${post.title!}</a>
             <div class="posts_meta">
                 <div class="posts_wrap webkit_box">

@@ -1,6 +1,6 @@
 
 <#macro header fixed_header>
-<header id="header" class="header sticky-header <#if fixed_header>fixed-header</#if>" ref={this.header} >
+<header id="header" class="header sticky-header <#if fixed_header>fixed-header</#if>">
     <a
         style="
             position:absolute;
@@ -19,11 +19,11 @@
                 </a>
             </div>
             <div class="header-navigation">
-                <button onclick="showHeader(this)" class="header-navigation-trigger">
+                <a onclick="showHeader(this)" class="header-navigation-trigger">
                     <span></span>
                     <span></span>
                     <span></span>
-                </button>
+                </a>
                 <nav class="main-navigation">
                     <ul>
                         <@menuTag method="list">

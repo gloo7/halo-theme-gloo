@@ -11,7 +11,7 @@
 
 
                     <h5${settings.job}</h5>
-                    <Link to="/about" class="readmore">关于我</Link>
+                    <a href="/s/about" class="readmore">关于我</a>
                 </div>
                 <div class="hero-area-image">
                     <img src="${theme_base!}/source/images/slider-image-1.png" alt="man mask" />
@@ -92,7 +92,7 @@
         </#if>
 
         <#if settings.provide_data != ''>
-        <div class="cr-section services-area section-padding-bottom-lg section-padding-top-lg">
+        <div class="gloo-section services-area section-padding-bottom-lg section-padding-top-lg">
             
             <div class="container">
                 <div class="row justify-content-center">

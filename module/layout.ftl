@@ -8,6 +8,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <meta name="theme-color" content="#000000"/>
+        <title>${title}</title>
         <meta name="description" content="Web site created using create-react-app"/>
         <@global.head/>
         <link rel="icon" href="${theme_base!}/source/favicon.ico"/>
@@ -16,7 +17,11 @@
         <link rel="stylesheet" href="${theme_base!}/source/css/bootstrap.min.css">
         <link rel="stylesheet" href="${theme_base!}/source/css/plugins.css">
         <link rel="stylesheet" href="${theme_base!}/source/css/style.css">
-        <title>${title}</title>
+        <script type="text/javascript">
+            if (!!window.ActiveXObject || "ActiveXObject" in window) {
+                alert('请抛弃万恶的IE系列浏览器吧。');
+            }
+        </script>
     </head>
     <body>
         <main class="page-content">
@@ -24,11 +29,11 @@
             <#if enable_breadcrumb>
                 <@breadcrumb title=title/>
             </#if>
-            <#nested >        
-            <@footer/>
+            <#nested />
+            <@footer/>       
         </main>
+
         <@global.footer/>
-        <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=xAdyMLfNM6jW8DGfY37AHjYP31feF1QC"></script>
         <script type="text/javascript">
         var showHeader = function(e) {
             const next = e.nextElementSibling;
@@ -41,6 +46,8 @@
             }
         }                
         </script>
+                <script src="${theme_base!}/plugins/vue@2.6.10/vue.min.js"></script>
+                <script src="${theme_base!}/plugins/halo-comment/halo-comment.min.js?v=1.0.9"></script>
     </body>
 </html>
 </#macro>

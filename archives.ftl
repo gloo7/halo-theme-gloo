@@ -4,10 +4,9 @@
 <#include "module/empty.ftl">
 <#include "module/post_list.ftl">
 <@layout title="${settings.archives_title}">
-<div class="cr-section section-padding-lg">
+<div class="gloo-section section-padding-lg">
     <div class="container"> 
         <div class="row">
-            
             <div class="col-xl-9 col-lg-8">
                 <@postTag method="count">
                 <#assign tagCount = count>

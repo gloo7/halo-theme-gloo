@@ -1,5 +1,57 @@
 <#include "module/layout.ftl">
 <@layout title="${sheet.title!}">
+<#if settings.skill_data != ''>
+<div class="gloo-section skills-area section-padding-lg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="section-title text-center">
+                    <h2>我的成分</h2>
+                    <p>这是我的主要技能 & 成分</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="row justify-content-center">
+                <#list settings.skill_data?split('=====') as skiil_data>
+                    <#assign skill = skills?split('-|||-')>
+                    <#assign cur_title = (skill[0]?? && skill[0]?trim!='')?then(skill[0]?replace('\n','')?replace('\r','')?trim,'')>
+                    <#assign cur_value = (skill[1]?? && skill[1]!='')?then(skill[1]?replace('\n','')?replace('\r','')?trim,'')>
+                    <div class="col-lg-3 col-md-5 col-sm-6 col-12">
+                        <div class="radial-progress-single mt-30">
+                            <div class="radial-progress">
+                                <canvas ref="" height=120 width=120 ></canvas>
+                            </div>
+                            <h5 class="radial-progress-title">{cur_title}</h5>
+                        </div>
+                    </div>
+                </#list>
+            </div>
+        </div>
+    </div>
+</div>
+</#if>
+
+<#if settings.keyword_data != ''>
+<div class="gloo-section counter-section section-padding-xs bg-grey" ref={countEle}>
+    <div class="container">
+        <div class="row justify-content-center">
+            <#list settings.keyword_data?split('=====') as keywords>
+                <#assign keyword = keywords?split('-|||-')>
+                <#assign cur_title = (keyword[0]?? && keyword[0]?trim!='')?then(keyword[0]?replace('\n','')?replace('\r','')?trim,'')>
+                <#assign cur_value = (keyword[1]?? && keyword[1]!='')?then(keyword[1]?replace('\n','')?replace('\r','')?trim,'')>
+                <div class="col-lg-3 col-md-5 col-sm-6 col-12">
+                    <div class="single-count">
+                        <h2><span class="counter-active">{cur_value}</span>+</h2>
+                        <h6>{cur_title}</h6>
+                    </div>    
+                </div>
+            </#list>
+        </div>
+    </div>
+</div>
+</#if>
+
 <div class="gloo-section about-us-area section-padding-lg ">
     <div class="container">
         ${sheet.formatContent!}
@@ -30,4 +82,5 @@
         </#if>
     </div>
 </div>
+
 </@layout>
