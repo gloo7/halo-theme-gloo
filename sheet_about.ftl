@@ -4,32 +4,98 @@
 <div class="section skills-area section-padding-lg">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-7">
-                <div class="section-title text-center">
-                    <h2>我的成分</h2>
-                    <p>这是我的主要技能 & 成分</p>
-                </div>
+            <div class="section-title text-center">
+                <h2>我的成分</h2>
+                <p>这是我的主要技能 & 成分</p>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="row justify-content-center">
-                <#list settings.skill_data?split('=====') as skiil_data>
-                    <#assign skill = skills?split('-|||-')>
-                    <#assign cur_title = (skill[0]?? && skill[0]?trim!='')?then(skill[0]?replace('\n','')?replace('\r','')?trim,'')>
-                    <#assign cur_value = (skill[1]?? && skill[1]!='')?then(skill[1]?replace('\n','')?replace('\r','')?trim,'')>
-                    <div class="col-lg-3 col-md-5 col-sm-6 col-12">
-                        <div class="radial-progress-single mt-30">
-                            <div class="radial-progress">
-                                <canvas ref="" height=120 width=120 ></canvas>
-                            </div>
-                            <h5 class="radial-progress-title">{cur_title}</h5>
+            <#list settings.skill_data?split('=====') as skills>
+                <#assign skill = skills?split('-|||-')>
+                <#assign cur_title = (skill[0]?? && skill[0]?trim!='')?then(skill[0]?replace('\n','')?replace('\r','')?trim,'')>
+                <#assign cur_value = (skill[1]?? && skill[1]!='')?then(skill[1]?replace('\n','')?replace('\r','')?trim,'')>
+                <div class="col-lg-3 col-md-5 col-sm-6 col-12">
+                    <div class="radial-progress-single mt-30">
+                        <div class="radial-progress">
+                            <canvas class="radial-progress-canvas" height=120 width=120 value="${cur_value}" ></canvas>
                         </div>
+                        <h5 class="radial-progress-title">${cur_title}</h5>
                     </div>
-                </#list>
-            </div>
+                </div>
+            </#list>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var playAnimate = function (percent, drawing_elem) {
+        const lineWidth = 3;
+        const forecolor = "#333333"
+        const bgcolor = '#f0f0f0';
+
+        var context = drawing_elem.getContext("2d");
+        var center_x = drawing_elem.width / 2;
+        var center_y = drawing_elem.height / 2;
+        var rad = Math.PI*2/100;
+        var speed = 0;
+        // 绘制背景圆圈
+        const backgroundCircle = function() {
+            context.save();
+            context.beginPath();
+            context.lineWidth = lineWidth; //设置线宽
+            var radius = center_x - context.lineWidth;
+            context.lineCap = "round";
+            context.strokeStyle = bgcolor;
+            context.arc(center_x, center_y, radius, 0, Math.PI*2, false);
+            context.stroke();
+            context.closePath();
+            context.restore();
+        }
+
+        //绘制运动圆环
+        const foregroundCircle = function(n) {
+            context.save();
+            context.strokeStyle = forecolor;
+            context.lineWidth = lineWidth;
+            context.lineCap = "round";
+            var radius = center_x - context.lineWidth;
+            context.beginPath();
+            context.arc(center_x, center_y, radius , -Math.PI/2, -Math.PI/2 +n*rad, false); //用于绘制圆弧context.arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+            context.stroke();
+            context.closePath();
+            context.restore();
+        }
+
+        //绘制文字
+        const text = function(n) {
+            context.save(); //save和restore可以保证样式属性只运用于该段canvas元素
+            context.fillStyle = forecolor;
+            var font_size = 18;
+            context.font = font_size + "px Helvetica";
+            var text_width = context.measureText(n.toFixed(0)+"%").width;
+            context.fillText(n.toFixed(0)+"%", center_x-text_width/2, center_y + font_size/2);
+            context.restore();
+        }
+
+        //执行动画
+        const drawFrame = function() {
+            window.requestAnimationFrame(drawFrame);
+            context.clearRect(0, 0, drawing_elem.width, drawing_elem.height);
+            backgroundCircle();
+            text(speed);
+            foregroundCircle(speed);
+            if(speed >= percent) return;
+            speed += 1;
+        };
+        drawFrame();
+    }
+    var radialElements = document.getElementsByClassName("radial-progress-canvas")
+    for (key in radialElements) {
+        const radial = radialElements[key]
+        const value = radial.getAttribute("value")
+        playAnimate(value || 100, radial)
+    }
+    
+</script>
 </#if>
 
 <#if settings.keyword_data != ''>
@@ -42,8 +108,8 @@
                 <#assign cur_value = (keyword[1]?? && keyword[1]!='')?then(keyword[1]?replace('\n','')?replace('\r','')?trim,'')>
                 <div class="col-lg-3 col-md-5 col-sm-6 col-12">
                     <div class="single-count">
-                        <h2><span class="counter-active">{cur_value}</span>+</h2>
-                        <h6>{cur_title}</h6>
+                        <h2><span class="counter-active">${cur_value}</span>+</h2>
+                        <h6>${cur_title}</h6>
                     </div>    
                 </div>
             </#list>

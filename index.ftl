@@ -18,15 +18,21 @@
                 </div>
                 <div class="social-icons">
                     <ul>
-                        <li><a><i class="fa fa-weixin"></i></a></li>
-                        <li><a><i class="fa fa-qq"></i></a></li>
+                        <#if settings.qrcode_wx != ''>
+                            <svg onclick="wxQrTrigger()" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+                                <path d="M334.848 334.336a33.792 33.792 0 0 0-36.352 30.72 33.792 33.792 0 0 0 36.352 30.72 28.672 28.672 0 0 0 30.208-30.72 28.672 28.672 0 0 0-30.208-30.72zM581.12 512a24.576 24.576 0 0 0 0 51.2 27.648 27.648 0 0 0 30.208-24.576 27.648 27.648 0 0 0-30.208-26.624zM502.784 395.776a28.672 28.672 0 0 0 30.208-30.72 28.672 28.672 0 0 0-30.208-30.72 33.792 33.792 0 0 0-35.84 30.72 33.792 33.792 0 0 0 35.84 30.72zM713.216 512a24.576 24.576 0 0 0 0 51.2 27.648 27.648 0 0 0 30.208-24.576 27.648 27.648 0 0 0-30.208-26.624z"
+                                    fill="#3db214"></path>
+                                <path d="M512 0a512 512 0 1 0 512 512A512 512 0 0 0 512 0zM412.672 646.656a403.456 403.456 0 0 1-83.968-12.288l-83.968 43.008 24.064-73.728a201.216 201.216 0 0 1-96.256-165.376c0-116.224 108.032-207.872 240.128-207.872a240.128 240.128 0 0 1 242.688 172.032h-23.04a198.144 198.144 0 0 0-204.8 193.536 185.344 185.344 0 0 0 7.168 51.2zM768 732.672l17.92 60.928-66.048-36.864a296.96 296.96 0 0 1-72.192 12.288 191.488 191.488 0 0 1-204.8-177.664 191.488 191.488 0 0 1 204.8-177.664c108.032 0 204.8 79.872 204.8 177.664A185.856 185.856 0 0 1 768 732.672z"
+                                    fill="#3db214"></path>
+                            </svg>
+                        </#if>
                     </ul>
                 </div>
             </div>
         </div>
         
         <#if settings.qrcode_wx != ''>
-        <div style="
+        <div id="wx" class="hidden" style="
             position:fixed;
             top:0;
             right:0;
@@ -34,10 +40,10 @@
             left:0;
             z-index:1050;
             overflow:hidden;
-            display:none;
-            outline:0;
-        ">
-            <div class="modal-dialog" style="
+            outline:0;"
+            onclick=""
+        >
+            <div class="modal-dialog " style="
                 position:absolute;
                 top:50%;
                 left:50%;
@@ -47,8 +53,7 @@
             ">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">微信</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <button onclick="wxQrTrigger()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
                         <img src="${settings.qrcode_wx}" art="wx"/>

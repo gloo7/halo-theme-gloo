@@ -9,20 +9,6 @@ genernal:
       default: "PROFESSIONAL _WEB DEVELOPER"
       placeholder: "职业"
       description: "职业信息将展示在首页中，不填不展示（示例：PROFESSIONAL _WEB DEVELOPER）"
-    country:
-      name: country
-      label: 国家
-      type: text
-      default: ""
-      placeholder: "国家信息"
-      description: "国家信息将展示在页脚中，不填不展示（示例：中国）"
-    province:
-      name: province
-      label: 省份
-      type: text
-      default: ""
-      placeholder: "省份信息"
-      description: "省份信息将展示在页脚中，不填不展示（示例：江西）"
     icp:
       name: icp
       label: ICP 备案号
@@ -177,13 +163,13 @@ about:
   items:
     keyword_data:
       name: keyword_data
-      label: 我的经验数据
+      label: 我的经验
       type: textarea
       default: ""
       description: "手动配置关于我页的”经验“数据。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
     skill_data:
       name: skill_data
-      label: 我的技能数据
+      label: 我的技能
       type: textarea
       default: ""
       description: "手动配置关于我页的”我的技能“数据。【多个数据之间用 '=====' 隔开，属性之间用 '-|||-' 隔开】(为了美观，允许换行)，【具体示例】标题-|||-描述 即可（请严格按照此格式或默认示例进行配置，否则可能导致网站崩溃）"
@@ -499,12 +485,6 @@ social:
       type: text
       default: ""
       placeholder: "邮箱地址"
-    telphone:
-      name: telphone
-      label: 电话号码
-      type: text
-      default: ""
-      placeholder: "电话号码"
     github:
       name: github
       label: Github

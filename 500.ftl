@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Not Found</title>
-    <link href="${theme_base!}/source/css/404.css" type="text/css" rel="stylesheet"/>
+    <link href="${theme_base!}/source/css/404.min.css" type="text/css" rel="stylesheet"/>
 </head>
   <main class="err-container">
     <span class="particle">4</span>

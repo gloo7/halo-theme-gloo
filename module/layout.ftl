@@ -1,6 +1,7 @@
 <#include './header.ftl'>
 <#include './footer.ftl'>
 <#include './breadcrumb.ftl'>
+<#include './rightside.ftl'>
 <#macro layout title="${blog_title!}" fixed_header=false enable_breadcrumb=true>
 <!DOCTYPE html>
 <html lang="zh-CN" data-theme="light">
@@ -13,9 +14,8 @@
         <@global.head/>
         <link rel="icon" href="${theme_base!}/source/favicon.ico"/>
         <link rel="apple-touch-icon" href="${theme_base!}/source/logo.png"/>
-        <link rel="manifest" href="${theme_base!}/source/manifest.json"/>
-        <link rel="stylesheet" href="${theme_base!}/source/css/plugins.css">
-        <link rel="stylesheet" href="${theme_base!}/source/css/style.css">
+        <link rel="stylesheet" href="${theme_base!}/source/css/style.min.css">
+        <link rel="stylesheet" href="${theme_base!}/source/css/meanmenu.min.css">
         <script type="text/javascript">
             if (!!window.ActiveXObject || "ActiveXObject" in window) {
                 alert('请抛弃万恶的IE系列浏览器吧。');
@@ -29,7 +29,8 @@
                 <@breadcrumb title=title/>
             </#if>
             <#nested />
-            <@footer/>       
+            <@footer/>
+            <@rightside/>     
         </main>
 
         <@global.footer/>
@@ -71,6 +72,15 @@
                 return content
             }
         }
+
+         var wxQrTrigger = function() {
+            const wx = document.getElementById('wx')
+            if (wx.classList.contains('hidden')) {
+                wx.classList.remove('hidden')
+            } else {
+                wx.classList.add('hidden')
+            }
+        }
         
         var showHeader = function(e) {
             const next = e.nextElementSibling;
@@ -94,7 +104,8 @@
                 nav.classList.add("is-active");
                 next.classList.add("is-visible");
             }
-        }                
+        }
+            
         </script>
     </body>
 </html>
