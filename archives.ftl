@@ -70,7 +70,7 @@
                             </#list >
                         </#list >
                     </div>
-                    <@pagination/>
+                    <@pagination method="archives" display="5" />
                 </#if>    
             </div>
             <@aside />
