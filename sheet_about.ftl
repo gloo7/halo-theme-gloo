@@ -29,7 +29,7 @@
 <script type="text/javascript">
     var playAnimate = function (percent, drawing_elem) {
         const lineWidth = 3;
-        const forecolor = "#333333"
+        const forecolor = "#333333";
         const bgcolor = '#f0f0f0';
 
         var context = drawing_elem.getContext("2d");
@@ -89,8 +89,8 @@
         drawFrame();
     }
     var radialElements = document.getElementsByClassName("radial-progress-canvas")
-    for (key in radialElements) {
-        const radial = radialElements[key]
+    for (i=0;i<radialElements.length;i++) {
+        const radial = radialElements[i]
         const value = radial.getAttribute("value")
         playAnimate(value || 100, radial)
     }

@@ -30,7 +30,7 @@
             </#if>
             <#nested />
             <@footer/>
-            <@rightside/>     
+            <@rightside />     
         </main>
 
         <@global.footer/>
@@ -38,29 +38,29 @@
         <script src="${theme_base!}/plugins/vue@2.6.10/vue.min.js"></script>
         <script src="${theme_base!}/plugins/halo-comment/halo-comment.min.js?v=1.0.9"></script>
         <script type="text/javascript">
-        var setStore = function(name, content, maxAge = null) {
+        function setStore(name, content, maxAge = null) {
             if (!window || !name) {
                 return
             }
             if (typeof content !== 'string') {
                 content = JSON.stringify(content)
             }
-            const storage = window.localStorage
+            let storage = window.localStorage
             storage.setItem(name, content)
             if (maxAge && !isNaN(parseInt(maxAge))) {
-                const timeout = parseInt(new Date().getTime() / 1000)
+                let timeout = parseInt(new Date().getTime() / 1000)
                 storage.setItem(name + '_expire', timeout + maxAge)
             }
         }
 
-        var getStore = function(name) {
+        function getStore(name) {
             if (!window || !name) {
                 return
             }
-            const content = window.localStorage.getItem(name)
-            const _expire = window.localStorage.getItem(name + '_expire')
+            let content = window.localStorage.getItem(name)
+            let _expire = window.localStorage.getItem(name + '_expire')
             if (_expire) {
-                const now = parseInt(new Date().getTime() / 1000)
+                let now = parseInt(new Date().getTime() / 1000)
                 if (now > _expire) {
                 return
                 }
@@ -73,38 +73,88 @@
             }
         }
 
-         var wxQrTrigger = function() {
-            const wx = document.getElementById('wx')
+
+        function wxQrTrigger() {
+            let wx = document.getElementById('wx')
             if (wx.classList.contains('hidden')) {
                 wx.classList.remove('hidden')
             } else {
                 wx.classList.add('hidden')
             }
         }
-        
-        var showHeader = function(e) {
-            const next = e.nextElementSibling;
-            if (e.classList.contains('is-active')) {
-              e.classList.remove("is-active");
-              next.classList.remove("is-visible");
-              setStore("nav_is_active", false)
+
+        function showDark(e) {
+            let darkIsActive;
+            let head = document.getElementsByTagName("head")[0];
+            let indexImage = document.getElementById("index-image");
+
+            if (typeof(e) == "undefined") {
+                darkIsActive = getStore("dark_is_active");
+                e = document.getElementById("rightside")
             } else {
-              e.classList.add("is-active");
-              next.classList.add("is-visible");
-              setStore("nav_is_active", true)
+                darkIsActive = !e.classList.contains("is-active")
+            }
+
+            if (darkIsActive) {
+                let link = document.createElement("link");
+                link.id = "dark"
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                link.href = "${theme_base!}/source/css/dark-color.min.css";
+                head.appendChild(link);
+                indexImage && indexImage.setAttribute("src", "${theme_base!}/source/images/slider-image-2.png");
+                e.classList.add("is-active");
+                setStore("dark_is_active", true)
+            } else {
+                let link = document.getElementById("dark")
+                head.removeChild(link)
+                indexImage && indexImage.setAttribute("src", "${theme_base!}/source/images/slider-image-1.png");
+                e.classList.remove("is-active");
+                setStore("dark_is_active", false)
+            }
+        }
+        
+        function showHeader(e) {
+            let navIsActive;
+            
+            if (typeof(e) == "undefined") {
+                navIsActive = getStore("nav_is_active");
+                e = document.getElementsByClassName("nav")
+            } else {
+                navIsActive = !e.classList.contains("is-active")
+                e = [e]
+            }
+
+            for (i=0;i<e.length;i++) {
+                let nav = e[i]
+                let next = nav.nextElementSibling;
+                if (navIsActive) {
+                    nav.classList.add("is-active");
+                    next.classList.add("is-visible");
+                    setStore("nav_is_active", true)
+                } else {
+                    nav.classList.remove("is-active");
+                    next.classList.remove("is-visible");
+                    setStore("nav_is_active", false)
+                }
             }
         }
 
-        var navIsActive = getStore("nav_is_active");
-        if (navIsActive) {
-            const navElements = document.getElementsByClassName('nav')
-            for (key in navElements) {
-                const nav = navElements[key]
-                const next = nav.nextElementSibling;
-                nav.classList.add("is-active");
-                next.classList.add("is-visible");
+        window.addEventListener('scroll', function(e) {
+            let header = document.getElementById("header")
+		    let scrollY = document.documentElement.scrollTop
+
+            if (header) {
+                if (scrollY>200) {
+                    header.classList.add("is-sticky")
+                }else {
+                    if (header.classList.contains("is-sticky")) header.classList.remove("is-sticky")
+                }	
             }
-        }
+        }, true);
+
+        showHeader();
+        showDark();
             
         </script>
     </body>

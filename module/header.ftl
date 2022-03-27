@@ -5,11 +5,10 @@
         <div class="header-inner d-none d-lg-flex">
             <div class="header-logo">
                 <a href="/">
-                    <img src="${theme_base!}/source/images/logo-dark.png" alt="logo" />
                 </a>
             </div>
             <div class="header-navigation">
-                <a onclick="showHeader(this)" class="header-navigation-trigger nav">
+                <a id="nav" onclick="showHeader(this)" class="header-navigation-trigger nav">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -28,12 +27,11 @@
         <div class="mobile-menu-wrapper d-block d-lg-none">
             <div class="mobile-menu clearfix">
                 <a href="/" class="mobile-logo">
-                    <img src="${theme_base!}/source/images/logo-dark.png" alt="mobile logo" />
                 </a>
                 <div class="mobile-menu-wrapper d-block d-lg-none">
                     <div class="mobile-menu clearfix mean-container">
                         <div class="mean-bar">
-                            <a 
+                            <a
                                 class="meanmenu-reveal nav"
                                 onclick="showHeader(this)"
                             >
