@@ -118,7 +118,7 @@
                 <ul>
                     <#list tags as tag>
                         <li>
-                            <a href="${tag.fullPath!}">
+                            <a>
                                 ${tag.name!}<span>(${tag.postCount!})</span>
                             </a>
                         </li>
