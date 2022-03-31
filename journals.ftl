@@ -1,5 +1,6 @@
 <#include "module/layout.ftl">
-<#include 'module/aside.ftl' >
+<#include "module/aside.ftl">
+<#include "module/pagination.ftl">
 <@layout
     title="${settings.journals_title}"
 >
@@ -16,6 +17,7 @@
                             <p>${journal.content!}</p>
                         </div>
                     </#list>
+                    <@pagination method="journals" page="${journals.number}" total="${journals.totalPages}" display="5" />
                 <#else>
                     <@empty />
                 </#if>
