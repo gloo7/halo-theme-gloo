@@ -16,6 +16,9 @@
         <link rel="apple-touch-icon" href="${theme_base!}/source/logo.png"/>
         <link rel="stylesheet" href="${theme_base!}/source/css/style.min.css">
         <link rel="stylesheet" href="${theme_base!}/source/css/meanmenu.min.css">
+        <link rel="preload stylesheet" as="style" href="${theme_base!}/plugins/prism/prism.min.css">
+        <link rel="preload stylesheet" as="style"
+              href="${theme_base!}/plugins/prism/themes/prism-${settings.code_theme!}.css">
         <script type="text/javascript">
             if (!!window.ActiveXObject || "ActiveXObject" in window) {
                 alert('请抛弃万恶的IE系列浏览器吧。');
@@ -37,6 +40,7 @@
         <script src="${theme_base!}/plugins/lazysizes/lazysizes.min.js"></script>
         <script src="${theme_base!}/plugins/vue@2.6.10/vue.min.js"></script>
         <script src="${theme_base!}/plugins/halo-comment/halo-comment.min.js?v=1.0.9"></script>
+        <script src="${theme_base!}/plugins/prism/prism.min.js"></script>
         <script type="text/javascript">
         function setStore(name, content, maxAge = null) {
             if (!window || !name) {

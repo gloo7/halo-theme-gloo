@@ -1,5 +1,6 @@
 <#include "module/layout.ftl">
 <#include "module/aside.ftl">
+<#include "module/empty.ftl">
 <#include "module/pagination.ftl">
 <@layout
     title="${settings.journals_title}"

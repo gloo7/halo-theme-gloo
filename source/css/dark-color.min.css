@@ -127,7 +127,7 @@ input:focus,input:active,button:focus,button:active,select:focus,select:active,t
     border-bottom: 2px solid #ffffff;
 }
 
-.breadcrumb .section {
+.breadcrumb {
     background: #222222;
 }
 

@@ -2,7 +2,7 @@
 <@layout title="${post.title!}"
 >
 <div class="section about-us-area section-padding-lg">
-    <div class="container">
+    <div class="container post">
         ${post.formatContent!}
         <#include "module/postfooter.ftl">
         <div class="section about-us-area section-padding-lg"> 
