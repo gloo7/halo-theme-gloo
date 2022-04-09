@@ -3945,6 +3945,16 @@ svg {
 	z-index: 1000;
 }
 
+.post_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
 .animate__bounceIn {
 	-webkit-animation-duration: .75s;
 	animation-duration: .75s;
@@ -4142,7 +4152,7 @@ svg {
 
 .comment__respond-type .item.active {
 	color: #fff;
-	background: var(--theme)
+	background: #fb6c28
 }
 
 .comment__respond-form {
@@ -4358,7 +4368,7 @@ svg {
 	height: 32px;
 	padding: 0 15px;
 	border: 0;
-	background: var(--theme);
+	background: #fb6c28;
 	color: #fff;
 	font-size: 14px
 }
@@ -4419,7 +4429,7 @@ svg {
 .comment .comment-list__item-contain .term .content .user .owner {
 	-ms-flex-negative: 0;
 	flex-shrink: 0;
-	background: var(--theme);
+	background: #fb6c28;
 	color: #fff;
 	padding: 0 5px;
 	border-radius: 2px;
@@ -4499,7 +4509,7 @@ svg {
 }
 
 .comment .comment-list__item-contain .term .content .handle .reply:hover {
-	color: var(--theme)
+	color: #fb6c28
 }
 
 .comment .comment-list__item-children {

@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="post_post_tag_share">
+<div class="post_tag_share">
     <div class="tag_list">
         <#list post.tags as  tag>
             <a href="${tag.fullPath!}" class="">${tag.name!}</a>
@@ -90,7 +90,7 @@
 </#if>
 
 
-<div class="post_post_pagination">
+<div class="post_pagination">
     <#if prevPost??>
         <a href="${prevPost.fullPath!}" title="${prevPost.title!}">上一篇</a>
     </#if>
@@ -98,4 +98,3 @@
         <a href="${nextPost.fullPath!}" title="${nextPost.title!}">下一篇</a>
     </#if>
 </div>
-
