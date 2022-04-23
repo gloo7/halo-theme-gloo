@@ -9,7 +9,7 @@
                         I AM  ${user.nickname!}...
                     </h1>
 
-                    <h5${settings.job}</h5>
+                    <h5>${settings.job}</h5>
                     <a href="/s/about" class="readmore">关于我</a>
                 </div>
                 <div class="hero-area-image">
